@@ -1,0 +1,21 @@
+[
+  "tx_count",
+  "tx_out_count",
+  "tx_in_count",
+  "total_volume",
+  "out_volume",
+  "in_volume",
+  "avg_tx_amount",
+  "max_tx_amount",
+  "min_tx_amount",
+  "std_tx_amount",
+  "fwd_ratio",
+  "unique_peers",
+  "unique_out_peers",
+  "unique_in_peers",
+  "round_amount_ratio_out",
+  "near_threshold_ratio",
+  "suspicious_desc_ratio",
+  "self_loop_count",
+  "out_max_amount"
+]

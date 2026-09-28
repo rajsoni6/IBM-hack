@@ -1,0 +1,102 @@
+{
+  "model_version": "fraud-model-v1",
+  "model_name": "logistic_regression",
+  "target_column": "is_fraud",
+  "class_mapping": {
+    "0": "normal",
+    "1": "fraud"
+  },
+  "threshold": 0.05,
+  "feature_columns": [
+    "tx_count",
+    "tx_out_count",
+    "tx_in_count",
+    "total_volume",
+    "out_volume",
+    "in_volume",
+    "avg_tx_amount",
+    "max_tx_amount",
+    "min_tx_amount",
+    "std_tx_amount",
+    "fwd_ratio",
+    "unique_peers",
+    "unique_out_peers",
+    "unique_in_peers",
+    "round_amount_ratio_out",
+    "near_threshold_ratio",
+    "suspicious_desc_ratio",
+    "self_loop_count",
+    "out_max_amount"
+  ],
+  "feature_count": 19,
+  "top_features": [
+    {
+      "feature": "max_tx_amount",
+      "importance": 0.502595
+    },
+    {
+      "feature": "out_max_amount",
+      "importance": 0.502595
+    },
+    {
+      "feature": "std_tx_amount",
+      "importance": 0.494962
+    },
+    {
+      "feature": "suspicious_desc_ratio",
+      "importance": 0.470585
+    },
+    {
+      "feature": "near_threshold_ratio",
+      "importance": 0.470585
+    },
+    {
+      "feature": "avg_tx_amount",
+      "importance": 0.357996
+    },
+    {
+      "feature": "total_volume",
+      "importance": 0.352092
+    },
+    {
+      "feature": "in_volume",
+      "importance": 0.350234
+    },
+    {
+      "feature": "out_volume",
+      "importance": 0.313322
+    },
+    {
+      "feature": "tx_count",
+      "importance": 0.084685
+    }
+  ],
+  "dataset": {
+    "total_accounts": 10000,
+    "fraud_accounts": 266,
+    "normal_accounts": 9734,
+    "fraud_ratio": 0.0266,
+    "source_files": [
+      "src/data/transactions/transactions_0_0.csv",
+      "src/data/transactions/transactions_1_0.csv",
+      "src/data/fraud/transactions_fraud.csv",
+      "src/data/fraud/fraud_cases.csv",
+      "src/data/accounts/accounts_0_0.csv",
+      "src/data/accounts/accounts_1_0.csv"
+    ]
+  },
+  "training_config": {
+    "random_state": 42,
+    "split": "60/20/20 stratified",
+    "imbalance_strategy": "class_weight='balanced' / scale_pos_weight",
+    "val_metric": "PR-AUC"
+  },
+  "trained_at": "2026-09-28T08:33:02.652680+00:00",
+  "known_limitations": [
+    "All transactions share the same date (2024-01-01); no temporal features are possible.",
+    "Fraud transaction amounts are all exactly 9999.0; near_threshold_ratio is a near-perfect discriminator and may be brittle in production.",
+    "Dataset is synthetically generated; real-world distributions will differ.",
+    "No network/graph features (betweenness, PageRank) used \u2014 requires NetworkX at training time.",
+    "SMOTE not applied; class_weight used instead to avoid synthetic oversampling artifacts."
+  ]
+}

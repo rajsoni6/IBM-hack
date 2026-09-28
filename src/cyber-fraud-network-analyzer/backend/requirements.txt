@@ -1,0 +1,34 @@
+# Web framework
+flask==3.0.3
+flask-cors==4.0.1
+python-dotenv==1.0.1
+
+# Auth
+bcrypt==4.1.3
+PyJWT==2.8.0
+
+# Rate limiting (in-memory, no Redis required)
+flask-limiter==3.7.0
+
+# Data / ML (used from Phase 5+)
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.0
+xgboost==2.0.3
+networkx==3.3
+
+# XLSX support for intelligence upload
+openpyxl==3.1.4
+
+# PDF generation
+reportlab==4.1.0
+
+# Pydantic for request/response validation
+pydantic==2.7.1
+
+# Utilities
+python-dateutil==2.9.0
+
+# Testing
+pytest==8.2.2
+pytest-flask==1.3.0
